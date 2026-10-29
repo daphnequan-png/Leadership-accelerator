@@ -1,307 +1,350 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<base target="_top">
-<title>Leadership Accelerator Nominations</title>
-<meta name="color-scheme" content="dark">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athena Leadership Accelerator</title>
 <style>
-/* Layout: forest masthead band, then a single readable form column */
-:root{
-  /* Athena dark theme, always on */
-  --bg:#062812;        /* Deep Forest: page background */
-  --band:#031A0A;      /* header band, a shade darker than the page */
-  --band-ink:#FAF8F3;  /* Ivory Mist */
-  --surface:#0D3219;   /* cards and note panel, a shade lighter than the page */
-  --field:#08250F;     /* input / select / textarea fill */
-  --line:#264330;      /* Moss: card and field borders, table rules */
-  --ink:#FAF8F3;       /* Ivory Mist: headings, input text */
-  --ink-2:#E6E7DE;     /* Limestone: labels, body copy in cards */
-  --muted:#A9BCAE;     /* hint text */
-  --sage:#B3CBB9;      /* Light Sage: eyebrow, italic H1 words, fact captions */
-  --euc:#8FB098;       /* Eucalyptus (lightened for dark): focus ring, links */
-  --desert:#DCBA79;    /* required asterisks, note border (Golden Tan on dark) */
-  --tan:#DCBA79;       /* Golden Tan: fact numbers */
-  --error:#E08A7B;
-  --ok:#8FC79E;
-  --display:"Playfair Display", Georgia, "Times New Roman", serif;
-  --body:"Helvetica Neue", Helvetica, Arial, sans-serif;
-  color-scheme: dark;
-}
-*[hidden]{display:none!important}
-*{box-sizing:border-box}
-html, body { background: var(--bg); }
-body{color:var(--ink); font:300 15px/1.55 var(--body); margin:0}
-.band{background:var(--band); color:var(--band-ink); padding-block:44px 40px; padding-inline:16px}
-.wrap{max-width:780px; margin:0 auto}
-.eyebrow{font:600 11px/1 var(--body); letter-spacing:.14em; text-transform:uppercase; color:var(--sage)}
-h1{font:700 clamp(30px,5vw,44px)/1.1 var(--display); margin:14px 0 6px; text-wrap:balance; color:var(--ink)}
-h1 em{font-style:italic; font-weight:500; color:var(--sage)}
-.lede{max-width:62ch; color:var(--ink-2); margin:14px 0 0}
-.facts{display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:26px; font-size:13px; color:var(--sage)}
-.facts b{display:block; font:700 22px/1.1 var(--display); color:var(--tan); font-family:var(--display)}
-main{padding-inline:16px; padding-block:32px 64px}
-.note{background:var(--surface); border-left:3px solid var(--desert); padding:14px 18px; color:var(--ink); font-size:14px; margin-bottom:28px}
-form{display:grid; gap:28px}
-fieldset, .panel{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:22px; margin:0; display:grid; gap:18px; min-width:0}
-legend{font:700 19px/1.2 var(--display); color:var(--ink); padding:0 6px; font-family:var(--display)}
-.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px}
-label{display:grid; gap:6px; font-weight:600; font-size:13px; color:var(--ink-2); min-width:0}
-.hint{font-weight:300; color:var(--muted); font-size:12.5px}
-input[type=text],input[type=email],input[type=number],select,textarea{
-  font:400 15px/1.4 var(--body); color:var(--ink); background:var(--field);
-  border:1px solid var(--line); border-radius:4px; padding:10px 12px; width:100%}
-input::placeholder, textarea::placeholder { color: var(--muted); }
-select option { background: var(--field); color: var(--ink); }
-textarea{min-height:96px; resize:vertical}
-input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--euc); outline-offset:1px}
-.req::after{content:" *"; color:var(--desert)}
-.check{display:flex; gap:10px; align-items:flex-start; font-weight:400; font-size:14px; color:var(--ink-2)}
-.check input{margin-top:3px; accent-color:var(--euc)}
-.radios{display:flex; flex-wrap:wrap; gap:10px}
-.radios label{display:flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:4px; padding:99px 14px; font-weight:400; cursor:pointer; background:var(--field); color:var(--ink-2)}
-input[type=radio], input[type=checkbox]{accent-color:var(--euc)}
-.err{color:var(--error); font-size:13px; font-weight:500}
-.actions{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
-button{font:600 14px/1 var(--body); letter-spacing:.04em; border-radius:4px; padding:14px 22px; cursor:pointer; border:1px solid transparent}
-.primary{background:var(--ink); color:var(--bg)}
-.primary:hover{background:var(--ink-2)}
-.ghost{background:transparent; color:var(--ink-2); border-color:var(--line)}
-button:disabled{opacity:.5; cursor:not-allowed}
-.status{font-size:14px}
-.panel h2{font:700 22px/1.2 var(--display); margin:0}
-.mine li{margin-bottom:6px}
-@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+  :root {
+    --bg-outer: #E2E7E3;
+    --card-bg: #F8F7F2;
+    --brand-green: #1E3A2B;
+    --sub-header-strip: #A3B8AA;
+    --text-color: #232725;
+    --text-muted: #555E58;
+    --divider-color: #D3DAD5;
+    --footer-dark: #12251B;
+    --footer-text: #D5DDD8;
+    --font-serif: Georgia, "Times New Roman", serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--bg-outer);
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 40px 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .email-container {
+    max-width: 650px;
+    width: 100%;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    background-color: var(--brand-green);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 36px 20px 32px 20px;
+  }
+
+  .header-logo {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    letter-spacing: 0.25em;
+    font-weight: 400;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .header-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .header-title span {
+    display: block;
+  }
+
+  .sub-header-strip {
+    height: 10px;
+    background-color: var(--sub-header-strip);
+  }
+
+  /* Main Body Content */
+  .content {
+    padding: 40px 48px;
+  }
+
+  .greeting {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .intro-text {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--divider-color);
+    margin: 28px 0;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 20px;
+  }
+
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .feature-item {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .feature-item strong {
+    font-weight: 700;
+  }
+
+  .body-paragraph {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  /* Button CTA */
+  .cta-container {
+    text-align: center;
+    margin: 32px 0 12px 0;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--brand-green);
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: #152B20;
+  }
+
+  .deadline {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+
+  /* FAQ section */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .faq-item {
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .links-container {
+    text-align: center;
+    font-size: 14.5px;
+    margin: 28px 0 36px 0;
+  }
+
+  .links-container a {
+    color: var(--text-color);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .links-container a:hover {
+    color: var(--brand-green);
+  }
+
+  .links-separator {
+    margin: 0 8px;
+    color: var(--text-muted);
+  }
+
+  .closing-heading {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: var(--brand-green);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 32px 20px 28px 20px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    letter-spacing: 0.22em;
+    font-weight: 400;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .footer-subtext {
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+    opacity: 0.9;
+  }
+
+  .disclaimer {
+    background-color: var(--footer-dark);
+    color: var(--footer-text);
+    padding: 20px 32px;
+    font-size: 10.5px;
+    line-height: 1.5;
+  }
+
+  .disclaimer strong {
+    font-weight: 700;
+  }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 0;
+    }
+    .content {
+      padding: 28px 20px;
+    }
+    .header-title {
+      font-size: 26px;
+    }
+    .section-heading, .closing-heading {
+      font-size: 20px;
+    }
+    .disclaimer {
+      padding: 16px 20px;
+    }
+  }
 </style>
 </head>
 <body>
 
-<header class="band">
-  <div class="wrap">
-    <div class="eyebrow">Athena Leadership Accelerator · Nomination</div>
-    <h1>Nominate a future <em>Operations Director</em></h1>
-    <p class="lede">ODs nominate people leaders who represent credible OD successors. Hub VPs review and approve final nominations, then a readiness review selects ten participants, each paired with a VP mentor for twelve months.</p>
-    <div class="facts">
-      <div><b>10</b>cohort seats</div>
-      <div><b>12</b>months, launching October 2026</div>
-      <div><b>4 hrs</b>per month protected time</div>
-    </div>
-  </div>
-</header>
+<div class="email-container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-logo">&Lambda;THENA</div>
+    <h1 class="header-title">
+      <span>Introducing the</span>
+      <span>Athena Leadership Accelerator</span>
+    </h1>
+  </header>
+  <div class="sub-header-strip"></div>
 
-<main>
-  <div class="wrap">
-    <p class="note">Eligible: Operations Managers, Partnership Managers, and other people leaders. Program completion strengthens promotion evidence. It does not guarantee appointment to an OD role.</p>
+  <!-- Body Content -->
+  <main class="content">
+    <p class="greeting">Hi Leaders,</p>
+    
+    <p class="intro-text">
+      Introducing the <strong>Athena Leadership Accelerator</strong>&mdash;a 12-month experience for a select group of emerging people leaders ready to build toward Operations Director and senior leadership roles.
+    </p>
 
-    <div id="thanks" class="panel" hidden>
-      <h2>Nomination received</h2>
-      <p id="thanksText"></p>
-      <div class="actions"><button class="ghost" id="another" type="button">Nominate someone else</button></div>
-    </div>
+    <hr class="divider">
 
-    <form id="form" novalidate>
-      <fieldset>
-        <legend>About you</legend>
-        <div class="grid">
-          <label for="nomRole"><span class="req">Your role</span>
-            <select id="nomRole" required>
-              <option value="">Select</option><option>Operations Director</option><option>Hub VP</option><option>Other leader</option>
-            </select></label>
-          <label for="nomHub"><span class="req">Your hub</span>
-            <select id="nomHub" required>
-              <option value="">Select</option><option>Philippines</option><option>Guatemala</option><option>Kenya</option><option>Enterprise</option><option>Other</option>
-            </select></label>
-        </div>
-      </fieldset>
+    <h2 class="section-heading">Reserved for the ten</h2>
 
-      <fieldset>
-        <legend>Nominee</legend>
-        <div class="grid">
-          <label for="neName"><span class="req">Full name</span><input id="neName" type="text" required autocomplete="off"></label>
-          <label for="neEmail"><span class="req">Athena email</span><input id="neEmail" type="email" required autocomplete="off"></label>
-          <label for="neRole"><span class="req">Current role</span>
-            <select id="neRole" required>
-              <option value="">Select</option><option>Operations Manager</option><option>Partnership Manager (CPM)</option><option>Other people leader</option>
-            </select></label>
-          <label for="neHub"><span class="req">Hub or team</span><input id="neHub" type="text" required placeholder="e.g. Guatemala, Aegis"></label>
-          <label for="neTenure">Time in current role<span class="hint">Months</span><input id="neTenure" type="number" min="0" max="240"></label>
-          <label for="neScope">Current scope<span class="hint">Direct reports, partnerships or accounts led</span><input id="neScope" type="text"></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Evidence of readiness</legend>
-        <label for="evPerf"><span class="req">Performance evidence</span><span class="hint">Results this person has owned: KPIs, client outcomes, retention, team performance.</span><textarea id="evPerf" required></textarea></label>
-        <label for="evJudgment"><span class="req">Business judgment</span><span class="hint">One decision they made that shows they see beyond their own delivery.</span><textarea id="evJudgment" required></textarea></label>
-        <label for="evRange">Leadership range<span class="hint">How they handle escalations, influence peers, or develop their team.</span><textarea id="evRange"></textarea></label>
-        <div>
-          <div class="req" style="font-weight:600;font-size:13px;color:var(--ink-2);margin-bottom:8px">Readiness for an OD role</div>
-          <div class="radios" role="radiogroup" aria-label="Readiness">
-            <label><input type="radio" name="ready" value="Ready now"> Ready now</label>
-            <label><input type="radio" name="ready" value="Ready in 12 months"> Ready in 12 months</label>
-            <label><input type="radio" name="ready" value="Ready in 12-24 months"> Ready in 12–24 months</label>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Commitment</legend>
-        <label class="check" for="ackTime"><input id="ackTime" type="checkbox"><span><span class="req">I will protect about 4 hours a month for this person</span> for pre-work, the live masterclass, mentor meetings and capstone work.</span></label>
-        <label class="check" for="ackDiscussed"><input id="ackDiscussed" type="checkbox"><span>I have discussed this nomination with the nominee.</span></label>
-        <label class="check" for="ackNoPromise"><input id="ackNoPromise" type="checkbox"><span><span class="req">I understand the program does not guarantee an OD appointment</span>, and that Hub VP approval is required.</span></label>
-      </fieldset>
-
-      <div class="actions">
-        <button class="primary" id="sendBtn" type="button">Send nomination</button>
-        <span id="status" class="status" role="status" aria-live="polite"></span>
+    <div class="feature-list">
+      <div class="feature-item">
+        <strong>Learn directly from Athena's VPs in 12 small-group sessions.</strong>
       </div>
-    </form>
+      <div class="feature-item">
+        <strong>Have a dedicated VP mentor in your corner all year.</strong>
+      </div>
+      <div class="feature-item">
+        <strong>Own a real Athena challenge and defend your team's results before an executive panel.</strong>
+      </div>
+    </div>
 
-    <section id="mine" class="panel" style="margin-top:28px" hidden>
-      <h2>Your nominations</h2>
-      <ul class="mine" id="mineList"></ul>
-    </section>
+    <hr class="divider">
+
+    <h2 class="section-heading">One cohort. By nomination only.</h2>
+
+    <p class="body-paragraph">
+      <strong>Directors and above:</strong> Who is delivering exceptional impact and already stretching beyond their role? This is your opportunity to champion them.
+    </p>
+
+    <p class="body-paragraph">
+      <strong>Interested in a seat?</strong> Talk to your leader and bring evidence of your impact and potential.
+    </p>
+
+    <div class="cta-container">
+      <a href="https://script.google.com/a/macros/athena.com/s/AKfycbyGvxRg2yQpwGsxMIRMsJdbg0DvL9UBkf46Kquvc_0DUAIoaZ8D9OXvAYRk1FSrFPg4/exec" class="btn" target="_blank" rel="noopener noreferrer">
+        Nominate an emerging leader &rarr;
+      </a>
+    </div>
+
+    <p class="deadline">Deadline: November 10, 2026, at noon EST.</p>
+
+    <h2 class="section-heading" style="margin-top: 36px;">A few things to know</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <strong>Who's eligible?</strong> Regularized people leaders with a completed H1 rating of at least Meets Expectations, with no active PIP or open disciplinary case. Directors and above submit nominations.
+      </div>
+      <div class="faq-item">
+        <strong>What's the commitment?</strong> At least four hours a month for 12 months. The cohort begins the week of November 16.
+      </div>
+      <div class="faq-item">
+        <strong>Does it guarantee promotion?</strong> It builds readiness for senior roles; promotion is not guaranteed.
+      </div>
+    </div>
+
+    <div class="links-container">
+      <a href="https://docs.google.com/presentation/d/1-C9GI8KtsF2AzAdlMPrOrzjaO_BcqTEPRiu8ASgyL5Y/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Explore the Program Guide &amp; FAQs</a>
+      <span class="links-separator">&middot;</span>
+      <a href="https://docs.google.com/presentation/d/1-C9GI8KtsF2AzAdlMPrOrzjaO_BcqTEPRiu8ASgyL5Y/edit?usp=sharing" target="_blank" rel="noopener noreferrer">View the launch deck</a>
+    </div>
+
+    <h2 class="closing-heading">Help us find the ten ready for what's next.</h2>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">ATHENA</div>
+    <p class="footer-subtext">Athena Internal Communications</p>
+  </footer>
+
+  <div class="disclaimer">
+    <strong>Confidentiality Notice:</strong> This email and any attachments are intended solely for the use of the individual or entity to whom they are addressed. They may contain confidential and privileged information belonging to Athena Labs LLC and ORAZ PH Inc. You are hereby notified that any unauthorized review, use, disclosure, or distribution is strictly prohibited. If you have received this email in error, please contact the sender immediately and delete all copies from your system. Thank you.
   </div>
-</main>
+</div>
 
-<script>
-function validateFormClient(payload) {
-  const missing = [];
-  if (!payload.nomRole) missing.push('your role');
-  if (!payload.nomHub) missing.push('your hub');
-  if (!payload.neName) missing.push('nominee name');
-  if (!payload.neEmail) {
-    missing.push('nominee email');
-  } else if (!/^\S+@\S+\.\S+$/.test(payload.neEmail)) {
-    missing.push('a valid nominee email');
-  }
-  if (!payload.neRole) missing.push('current role');
-  if (!payload.neHub) missing.push('hub or team');
-  if (!payload.evPerf) missing.push('performance evidence');
-  if (!payload.evJudgment) missing.push('business judgment');
-  if (!payload.ready) missing.push('readiness');
-  if (!payload.ackTime) missing.push('the time commitment');
-  if (!payload.ackNoPromise) missing.push('the no-guarantee acknowledgment');
-
-  if (missing.length > 0) {
-    let formattedList = '';
-    if (missing.length === 1) {
-      formattedList = missing[0];
-    } else if (missing.length === 2) {
-      formattedList = missing[0] + ' and ' + missing[1];
-    } else {
-      formattedList = missing.slice(0, -1).join(', ') + ', and ' + missing[missing.length - 1];
-    }
-    return 'Add ' + formattedList + ' before sending.';
-  }
-  return null;
-}
-
-function loadMyNominations() {
-  if (typeof google === 'undefined' || !google.script || !google.script.run) return;
-  google.script.run
-    .withSuccessHandler(function(rows) {
-      const minePanel = document.getElementById('mine');
-      const mineList = document.getElementById('mineList');
-      mineList.textContent = '';
-
-      if (rows && rows.length > 0) {
-        rows.forEach(function(item) {
-          const li = document.createElement('li');
-          li.textContent = (item.nomineeName || '') + ' (' + (item.nomineeRole || '') + ') · ' + (item.status || '') + ' · ' + (item.submittedAt || '');
-          mineList.appendChild(li);
-        });
-        minePanel.hidden = false;
-      } else {
-        minePanel.hidden = true;
-      }
-    })
-    .withFailureHandler(function(err) {
-      console.error('Failed to load nominations:', err);
-    })
-    .getMyNominations();
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  loadMyNominations();
-
-  const form = document.getElementById('form');
-  const sendBtn = document.getElementById('sendBtn');
-  const statusEl = document.getElementById('status');
-  const thanksPanel = document.getElementById('thanks');
-  const thanksText = document.getElementById('thanksText');
-  const anotherBtn = document.getElementById('another');
-
-  sendBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    statusEl.textContent = '';
-    statusEl.className = 'status';
-
-    const selectedReady = document.querySelector('input[name="ready"]:checked');
-
-    const payload = {
-      nomRole: document.getElementById('nomRole').value,
-      nomHub: document.getElementById('nomHub').value,
-      neName: document.getElementById('neName').value,
-      neEmail: document.getElementById('neEmail').value,
-      neRole: document.getElementById('neRole').value,
-      neHub: document.getElementById('neHub').value,
-      neTenure: document.getElementById('neTenure').value,
-      neScope: document.getElementById('neScope').value,
-      evPerf: document.getElementById('evPerf').value,
-      evJudgment: document.getElementById('evJudgment').value,
-      evRange: document.getElementById('evRange').value,
-      ready: selectedReady ? selectedReady.value : '',
-      ackTime: document.getElementById('ackTime').checked,
-      ackDiscussed: document.getElementById('ackDiscussed').checked,
-      ackNoPromise: document.getElementById('ackNoPromise').checked
-    };
-
-    const err = validateFormClient(payload);
-    if (err) {
-      statusEl.textContent = err;
-      statusEl.className = 'status err';
-      return;
-    }
-
-    sendBtn.disabled = true;
-    sendBtn.textContent = 'Sending…';
-
-    if (typeof google === 'undefined' || !google.script || !google.script.run) {
-      sendBtn.disabled = false;
-      sendBtn.textContent = 'Send nomination';
-      statusEl.textContent = 'Google Apps Script environment not detected.';
-      statusEl.className = 'status err';
-      return;
-    }
-
-    google.script.run
-      .withSuccessHandler(function(res) {
-        form.hidden = true;
-        thanksText.textContent = res.nomineeName + ' is nominated. The program team will route this to the ' + res.nominatorHub + ' Hub VP for approval.';
-        thanksPanel.hidden = false;
-        sendBtn.disabled = false;
-        sendBtn.textContent = 'Send nomination';
-        loadMyNominations();
-      })
-      .withFailureHandler(function(error) {
-        sendBtn.disabled = false;
-        sendBtn.textContent = 'Send nomination';
-        statusEl.textContent = error.message || String(error);
-        statusEl.className = 'status err';
-      })
-      .sendNomination(payload);
-  });
-
-  anotherBtn.addEventListener('click', function() {
-    form.reset();
-    thanksPanel.hidden = true;
-    form.hidden = false;
-    statusEl.textContent = '';
-    statusEl.className = 'status';
-  });
-});
-</script>
 </body>
 </html>
